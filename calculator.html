@@ -1,6 +1,347 @@
-<p class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="dishabansal" data-slug-hash="xypOBB" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Smart scientific Calculator">
-  <span>See the Pen <a href="https://codepen.io/dishabansal/pen/xypOBB">
-  Smart scientific Calculator</a> by Disha Bansal (<a href="https://codepen.io/dishabansal">@dishabansal</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<div class="codepen" data-height="265" data-theme-id="light" data-default-tab="html,result" data-user="dishabansal" data-slug-hash="xypOBB" data-prefill='{"title":"Smart scientific Calculator","tags":[],"scripts":[],"stylesheets":[]}'>
+  <pre data-lang="html">&lt;link href="https://fonts.googleapis.com/css?family=Libre+Barcode+128+Text" rel="stylesheet">
+&lt;div id="main">
+		&lt;div class="calculator">
+		&lt;input type="text" id="screen">
+      &lt;div class="calculator__row1">
+    &lt;button class="button">Rad&lt;/button>
+    &lt;button class="button" >Deg&lt;/button>
+                               
+&lt;h1 style="font-size: 200%; margin-left: 20px; margin-right: 20px">Smart Scientific Calculator&lt;/h1>
+&lt;button class="button" id="clean">AC&lt;/button>
+&lt;/div>
+    &lt;div class="calculator__row2">
+         &lt;button class="button">sin&lt;/button>
+         &lt;button class="button">cos&lt;/button>
+         &lt;button class="button">tan&lt;/button>
+		   &lt;button class="button dark">7&lt;/button>
+			&lt;button class="button dark">8&lt;/button>
+			&lt;button class="button dark">9&lt;/button>
+			&lt;button class="button">*&lt;/button>
+    &lt;/div>
+	&lt;div class="calculator__row3">
+        &lt;button class="button">x^&lt;/button>
+        &lt;button class="button">pi&lt;/button>
+        &lt;button class="button">%&lt;/button>
+		  &lt;button class="button dark">4&lt;/button>
+			&lt;button class="button dark">5&lt;/button>
+			&lt;button class="button dark">6&lt;/button>
+			&lt;button class="button">/&lt;/button>
+	&lt;/div>
+	&lt;div class="calculator__row4">
+      &lt;button class="button">ln&lt;/button>
+      &lt;button class="button">log&lt;/button>
+      &lt;button class="button">x!&lt;/button>
+			&lt;button class="button dark">1&lt;/button>
+			&lt;button class="button dark">2&lt;/button>
+			&lt;button class="button dark">3&lt;/button>
+			&lt;button class="button">-&lt;/button>
+	&lt;/div>
+			&lt;div class="calculator__row5">
+      &lt;button class="button">&radic;&lt;span class="over">&lt;/span>&lt;/button>
+      &lt;button class="button">(&lt;/button>
+      &lt;button class="button">)&lt;/button>
+			&lt;button class="button">.&lt;/button>
+      &lt;button class="button dark">0&lt;/button>
+			&lt;button class="button">=&lt;/button>
+			&lt;button class="button">+&lt;/button>
+&lt;/div>
+&lt;/div>
+&lt;/div>
+
+	
+		
+	</pre>
+  <pre data-lang="css">body {
+  padding: 5%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 23px;
+  color: white;
+  background: black;
+}
+
+.main {
+  max-width: 10%;
+}
+
+a,
+a:visited  {
+  color: goldenrod;
+}
+
+.dark {
+  background: darkgray;
+}
+
+.button > .over {
+  text-decoration:overline;
+  display: inline-block;
+  position:relative;
+  top: 3px;
+  left: -4px;
+}
+
+.calculator {
+  display: inline-block;
+  background: white;
+  margin: 1% 0;
+  color: black;
+  border-radius: 5%;
+  border: 3px solid black;
+  box-shadow: 5px 5px 5px 3px gray;
+  
+}
+
+.calculator button {
+  font-size: x-large;
+  width: 4em;
+  min-height: 3em;
+  margin: 0.8%;
+  border-radius: 25%;
+  border: 1px solid black;
+  box-shadow: 3px 3px 3px gray;
+}
+
+.calculator button:hover,
+#clear:hover,
+#backspace:hover {
+  background: gold;
+  color: white;
+  transform: scale(0.9);
+  border-radius: 20%;
+}
+
+.calculator button:focus,
+#clear:focus,
+#backspace:focus {
+  outline: none;
+}
+
+.button:active,
+.button-active {
+  background: gold;
+  color: white;
+  transform: scale(0.9);
+}
+
+ #screen{
+  background: darkgray;
+  border: 3px solid black;
+  box-shadow: 3px 3px 3px 3px gray;
+  border-radius: 5%;
+  width: 80%;
+  height: 120px;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 5%;
+  text-align: right;
+  overflow: auto;
+  overflow-wrap: break-word;
+  font-size: 60px;
+
+}
+
+    
+
+
+#clean {
+  background: salmon;
+}
+
+
+.calculator__row1,
+.calculator__row2,
+.calculator__row3,
+.calculator__row4,
+.calculator__row5 {
+  display: flex;
+  margin: 0 auto;
+     max-width: 80%;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Libre Barcode 128 Text', cursive;
+}
+
+.calculator__row5 {
+  margin-bottom: 3%;
+} 
+
+.footer {
+  /* margin-top: 2%;
+  font-size: medium; */
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+</pre>
+  <pre data-lang="js">var display = document.getElementById("screen");
+var buttons = document.getElementsByClassName("button");
+  
+  Array.prototype.forEach.call(buttons, function(button) {
+  button.addEventListener("click", function() {
+    if (button.textContent != "=" && 
+    button.textContent != "AC" && 
+    button.textContent != "*" && 
+    button.textContent != "/" && 
+    button.textContent != "√" && 
+    button.textContent != "+" && 
+    button.textContent != "%" && 
+    button.textContent != "=" && 
+    button.textContent != "-" && 
+    button.textContent != "sin" && 
+    button.textContent != "cos" && 
+    button.textContent != "tan" && 
+    button.textContent != "log" && 
+    button.textContent != "ln" && 
+    button.textContent != "x^" && 
+    button.textContent != "x!" && 
+    button.textContent != "pi" && 
+    button.textContent != "Rad" 
+    && button.textContent != "Deg") {
+      display.value += button.textContent;
+    } else if (button.textContent === "=") {
+      equals();
+    } else if (button.textContent === "AC") {
+      clear();
+    } else if (button.textContent === "*") {
+      multiply();
+    } else if (button.textContent === "/") {
+      divide();
+    } else if (button.textContent === "+") {
+      plus();
+      } else if (button.textContent === "-") {
+      Minus();
+    } else if (button.textContent === "%") {
+      percent();
+    } else if (button.textContent === "pi") {
+      pi();
+    } else if (button.textContent === "√") {
+      squareRoot();
+    } else if (button.textContent === "sin") {
+      sin();
+    } else if (button.textContent === "cos") {
+      cos();
+    } else if (button.textContent === "tan") {
+      tan();
+    } else if (button.textContent === "log") {
+      log();
+    } else if (button.textContent === "ln") {
+      ln();
+    } else if (button.textContent === "x^") {
+      exponent();
+    } else if (button.textContent === "x!") {
+      factorial();
+    } else if (button.textContent === "Rad") {
+      radians();
+    } else if (button.textContent === "Deg") {
+      degrees();
+    }
+  });
+});
+
+
+function syntaxError() {
+  if (eval(display.value) == SyntaxError || eval(display.value) == ReferenceError || eval(display.value) == TypeError) {
+    display.value == "Syntax Error";
+  }
+}
+
+
+function equals() {
+  if ((display.value).indexOf("^") > -1) {
+    var base = (display.value).slice(0, (display.value).indexOf("^"));
+    var exponent = (display.value).slice((display.value).indexOf("^") + 1);
+    display.value = eval("Math.pow(" + base + "," + exponent + ")");
+  } else {
+    display.value = eval(display.value)
+    checkLength()
+    syntaxError()
+  }
+}
+
+function clear() {
+  display.value = "";
+}
+
+
+function multiply() {
+  display.value += "*";
+}
+
+function divide() {
+  display.value +=  "/";
+}
+function plus() {
+  display.value +=  "+";
+}
+
+function Minus() {
+  display.value +=  "-";
+}
+
+function factorial() {
+  var number = 1;
+  if (display.value === 0) {
+    display.value = "1";
+  } else if (display.value &lt; 0) {
+    display.value = "undefined";
+  } else {
+    var number = 1;
+    for (var i = display.value; i > 0; i--) {
+      number *=  i;
+    }
+    display.value = number;
+  }
+}
+
+function pi() {
+  display.value = (display.value * Math.PI);
+}
+
+function square() {
+  display.value = eval(display.value * display.value);
+}
+
+function squareRoot() {
+  display.value = Math.sqrt(display.value);
+}
+
+function percent() {
+  display.value = display.value / 100;
+}
+
+function sin() {
+  display.value = Math.sin(display.value);
+}
+
+function cos() {
+  display.value = Math.cos(display.value);
+}
+
+function tan() {
+  display.value = Math.tan(display.value);
+}
+
+function log() {
+  display.value = Math.log10(display.value);
+}
+
+function ln() {
+  display.value = Math.log(display.value);
+}
+
+function exponent() {
+  display.value += "^";
+}
+
+
+function radians() {
+  display.value = display.value * (Math.PI / 180);
+}
+
+function degrees() {
+  display.value = display.value * (180 / Math.PI);
+}</pre></div>
 <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
